@@ -1,0 +1,13 @@
+<br><br><br>
+<h1>Update Category</h1>
+<form [formGroup]="updatecategoryForm" (ngSubmit)="UpdateCategory()">
+    <div *ngFor="let b of categoryDetail">
+            <div class="form-group">
+                    <label>CategoryTitle</label>
+                    <input type="text" class="form-control" [(ngModel)]="b.CategoryTitle" formControlName="CategoryTitle" />
+             </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="UpdateCategory()">Save Changes</button>
+    </div>
+</form>

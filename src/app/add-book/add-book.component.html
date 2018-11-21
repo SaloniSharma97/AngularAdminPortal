@@ -1,0 +1,70 @@
+<br><br>
+<br>
+<h1>Book Details</h1><br>
+
+<form [formGroup]="addBookForm" (ngSubmit)="AddBook()">
+  <div class="form-group">
+    <label>BookTitle</label>
+    <input type="text" formControlName="BookTitle" [(ngModel)]="currentBook.BookTitle" class="form-control" 
+     [ngClass]="{'is-invalid':submitted && f.BookTitle.errors}" />
+    <div *ngIf="submitted && f.BookTitle.errors" class="invalid-feedback">
+      <div *ngIf="f.BookTitle.errors.required">BookTitle is required</div>
+      <div *ngIf="f.BookTitle.errors.minlength">BookTitle must be at least 3 characters</div>
+      <div *ngIf="f.BookTitle.errors.maxlength">BookTitle should not exceed 20 characters</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>BookPrice</label>
+    <input type="text" formControlName="Price"  [(ngModel)]="currentBook.Price" class="form-control" 
+    [ngClass]="{'is-invalid':submitted && f.Price.errors}" />
+    <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
+      <div *ngIf="f.Price.errors.required">BookPrice is required</div>
+      <!-- <div *ngIf="f.CategoryTitle.errors.minlength">CategoryTitle must be at least 6 characters</div> -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label>BookQuantity</label>
+    <input type="text" formControlName="BookQuantity" [(ngModel)]="currentBook.BookQuantity" class="form-control" 
+     [ngClass]="{'is-invalid':submitted && f.BookQuantity.errors}" />
+    <div *ngIf="submitted && f.BookQuantity.errors" class="invalid-feedback">
+      <div *ngIf="f.BookQuantity.errors.required">BookQuantity is required</div>
+      <!-- <div *ngIf="f.CategoryTitle.errors.minlength">CategoryTitle must be at least 6 characters</div> -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Category Title  </label><br>
+    <select [(ngModel)]="selected" class="form-control" [ngModelOptions]="{standalone: true}"  (ng-change)="fillSub(selected)">
+            <option *ngFor="let cat of categoryList" [(ngValue)]="cat.CategoryId">{{cat.CategoryTitle}}</option>
+  </select>
+
+  </div>
+  <div class="form-group">
+    <label>SubCategory Title  </label><br>
+    <select [(ngModel)]="selectedsub" class="form-control" (onchange)="fillSub(selected)" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let cat of subcategoryList" [(ngValue)]="cat.SubCategoryId">{{cat.SubCategoryTitle}}</option>
+  </select>
+  </div>
+  <div class="form-group">
+    <label>SupplierId</label>
+    <input type="text" formControlName="SupplierId" [(ngModel)]="currentBook.SupplierId" class="form-control" 
+     [ngClass]="{'is-invalid':submitted && f.SupplierId.errors}" />
+    <div *ngIf="submitted && f.SupplierId.errors" class="invalid-feedback">
+      <div *ngIf="f.SupplierId.errors.required">SupplierId is required</div>
+      <!-- <div *ngIf="f.CategoryTitle.errors.minlength">CategoryTitle must be at least 6 characters</div> -->
+    </div>
+  </div>
+  <div class="form-group">
+      <label>Image</label>
+      <input type="text" formControlName="Image" [(ngModel)]="currentBook.Image" class="form-control"  [ngClass]="{'is-invalid':submitted && f.Image.errors}" />
+      <div *ngIf="submitted && f.Image.errors" class="invalid-feedback">
+        <div *ngIf="f.Image.errors.required">Image is required</div>
+        <!-- <div *ngIf="f.CategoryTitle.errors.minlength">CategoryTitle must be at least 6 characters</div> -->
+      </div>
+    </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Add Book</button>
+  </div>
+</form>

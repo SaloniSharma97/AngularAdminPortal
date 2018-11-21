@@ -1,0 +1,16 @@
+<ul *ngFor="let b of categoryDetail">
+  <table class="table table-striped">
+    <tr>
+      <th>Category Id</th>
+      <td>{{b.CategoryId}}</td>
+    </tr>
+    <tr>
+      <th>Category Title</th>
+      <td>{{b.CategoryTitle}}</td>
+    </tr>
+  </table>
+  <button class="btn btn-primary"  style="margin:20px;" [routerLink]="['/category']">Go Back</button>|
+  <button type="button" class="btn btn-primary" style="margin:20px;" (click)="delete()">Delete</button>|
+  <button class="btn btn-primary" style="margin:20px;" [routerLink]="['/updatecategory',b.CategoryId]">Update</button>
+
+</ul>

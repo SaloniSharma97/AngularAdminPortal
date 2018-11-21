@@ -1,0 +1,39 @@
+<br><br>
+  
+
+<h1>Enter SubCategory Details</h1><br>
+  <form [formGroup] =" addSubCategoryForm" (ngSubmit)="AddSubCategory()">
+  
+  
+  <div class ="form-group">
+    <label>SubCategoryTitle</label>
+    <input type="text" formControlName="SubCategoryTitle" class="form-control" [(ngModel)]="currentSubCategory.SubCategoryTitle"
+    [ngClass]="{'is-invalid':submitted && f.SubCategoryTitle.errors}"/>
+    <div *ngIf="submitted && f.SubCategoryTitle.errors"class="invalid-feedback" >
+      <div *ngIf="f.SubCategoryTitle.errors.required">SubCategoryTitle is required</div>
+      <div *ngIf="f.SubCategoryTitle.errors.minlength">SubCategoryTitle must be at least 6 characters</div>
+      <div *ngIf="f.SubCategoryTitle.errors.maxlength">SubCategoryTitle should not exceed 10 characters</div>
+  </div>
+    </div>
+    
+
+    <div class="form-group">
+      <label>Category Title  </label><br>
+      <select [(ngModel)]="selected" class="form-control" [ngModelOptions]="{standalone: true}"  (ng-change)="fillSub(selected)">
+              <option *ngFor="let cat of categoryList" [(ngValue)]="cat.CategoryId">{{cat.CategoryTitle}}</option>
+    </select>
+</div>
+
+    <!-- <div class ="form-group">
+        <label>CategoryId</label>
+        <input type="text" formControlName="CategoryId" class="form-control" [(ngModel)]="currentSubCategory.CategoryId"
+        [ngClass]="{'is-invalid':submitted && f.CategoryId.errors}"/>
+        <div *ngIf="submitted && f.CategoryId.errors"class="invalid-feedback" >
+          <div *ngIf="f.CategoryId.errors.required">CategoryId is required</div>
+      </div>
+        </div> -->
+
+  <div class="form-group">
+    <button class="btn btn-primary">Add SubCategory</button>
+  </div>
+  </form> 

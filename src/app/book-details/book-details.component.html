@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+<ul *ngFor="let b of bookDetail">
+  <!-- <li>{{b.BookId}}</li>
+   <li>{{b.BookTitle}}</li>
+   <li>{{b.BookTitle}}</li>
+   <li>{{b.BookTitle}}</li>
+   <li>{{b.BookTitle}}</li> -->
+   <img class="img-fluid img-thumbnail img-circle mx-auto d-block" src="{{b.Image}}" style="width:200px;height:250px ; ">
+   <br><h1 style="text-align: center;">{{b.BookTitle}}</h1>
+  <br>
+  <div class="card">
+  <table class="table table-striped">
+    <tr>
+      <th >Book Id</th>
+      <td>{{b.BookId}}</td>
+    </tr>
+   
+    <tr>
+      <th>Price</th>
+      <td>{{b.Price | currency:'INR'}}</td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td>{{b.BookQuantity}}</td>
+    </tr>
+    <tr>
+      <th>Category Title</th>
+      <td>{{b.CategoryTitle}}</td>
+    </tr>
+    <tr>
+      <th>SubCategory Title</th>
+      <td>{{b.SubCategoryTitle}}</td>
+    </tr>
+    <tr>
+      <th>Supplier Id</th>
+      <td>{{b.SupplierId}}</td>
+    </tr>
+  
+
+  </table>
+</div>
+   <button  class="btn btn-primary"  style="margin:20px;" [routerLink]="['/book']">Go Back</button>|
+   <button type="button" class="btn btn-primary" style="margin:20px;" (click)="delete()">Delete</button>|
+   <button class="btn btn-primary" style="margin:20px;" [routerLink]="['/update',b.BookId]">Update </button>
+</ul>
+</div>

@@ -1,0 +1,45 @@
+<br><br><br>
+<h1>Update Book</h1>
+<form [formGroup]="updateBookForm" (ngSubmit)="Update()">
+
+        <div *ngFor="let b of bookDetail">
+        
+            <div class="form-group">
+                <label>BookTitle</label>
+                <input type="text" class="form-control" [(ngModel)]="b.BookTitle" formControlName="BookTitle" />
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" class="form-control" [(ngModel)]="b.Price" formControlName="Price" />
+            </div>
+            <div class="form-group">
+                <label>BookQuantity</label>
+                <input type="text" class="form-control" [(ngModel)]="b.BookQuantity" formControlName="BookQuantity" />
+            </div>
+            <div class="form-group">
+                    <label>Category Title  </label><br>
+                    <select [(ngModel)]="selected" class="form-control" [ngModelOptions]="{standalone: true}"  (ng-change)="fillSub(selected)">
+                            <option *ngFor="let cat of categoryList" [(ngValue)]="cat.CategoryId">{{cat.CategoryTitle}}</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                    <label>SubCategory Title  </label><br>
+                    <select [(ngModel)]="selectedsub" class="form-control" (onchange)="fillSub(selected)" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let cat of subcategoryList" [(ngValue)]="cat.SubCategoryId">{{cat.SubCategoryTitle}}</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label>SupplierId</label>
+                <input type="text" class="form-control" [(ngModel)]="b.SupplierId" formControlName="SupplierId" />
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input type="text" class="form-control" [(ngModel)]="b.Image" formControlName="Image" />
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="Update()">
+                Save Changes
+            </button>
+        </div>
+    </form>

@@ -1,0 +1,47 @@
+<head>
+  <style>
+  table {
+      width:100%;
+  }
+  table, th, td {
+      border: 1px solid darkslategrey;
+      border-collapse: collapse;
+  }
+  th, td {
+      padding: 15px;
+      text-align: left;
+  }
+  table#t01 tr:nth-child(even) {
+      background-color: lightgrey;
+  }
+  table#t01 tr:nth-child(odd) {
+     background-color: #fff;
+  }
+  table#t01 th {
+      background-color: grey;
+      color: white;
+  }
+  </style>
+  </head>
+<h2 style="text-align:center;">SUBCATEGORY LIST</h2>
+
+      <br>
+      <button style="margin: auto; display: block" [routerLink]="['/addsubcategory']" class="btn btn-primary">Add SubCategory</button>
+      <br><br>
+      <table id="t01" class="table table-striped">
+        <thead >
+          <tr>
+             <th>SubCategory Title</th>
+             <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of subCategoryList">
+            <td>{{ s.SubCategoryTitle }}</td>
+
+             <td>
+               <a [routerLink]="['/subcategory-details',s.SubCategoryId]">View Details</a>
+             </td>
+          </tr>
+        </tbody>
+      </table>

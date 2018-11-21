@@ -1,0 +1,32 @@
+<br><br>
+
+<div class="container">
+    <div class="row">
+      
+      <div class="col-md-4">
+          <nav >
+              <h2>Categories</h2>
+              <div *ngFor="let c of categoryList">
+                  
+              <button class="btn btn-secondary btn-block" role="group" style="background-color:gray;border: 1px solid;color: white;padding: 10px 50px;cursor: pointer;width: 100%;display: block;" type="button" (click)="getBooks()" [routerLink]="['/getbookbyid',c.CategoryId]"> {{c.CategoryTitle}}</button>
+              </div>
+            
+            </nav>
+      </div>
+      <div class="col-md-8">
+<br><br><br>
+        <div class="row text-center text-lg-left">
+          
+    <div *ngFor="let b of bookList" class="card-deck rounded mt-20 " style="width: 15rem; padding: 0 8px;display: table;clear: both;">    
+
+      <img class="img-fluid img-thumbnail img-circle mx-auto d-block" src="{{b.Image}}" style="width:100px;height:150px ; ">
+          <h5 style="text-align:center">{{b.BookTitle}}</h5>
+          <h5 style="text-align:center">{{b.Price | currency: 'INR'}}</h5>
+          
+        </div>
+      </div></div>
+    </div>
+    
+  </div>
+
+

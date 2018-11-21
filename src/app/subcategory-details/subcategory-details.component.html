@@ -1,0 +1,25 @@
+<br><br>
+<h1>Sub Category Details</h1>
+
+<br>
+<br><br><br>
+<ul *ngFor="let b of subcategoryList">
+  <table class="table table-striped">
+    <tr>
+      <th>SubCategory Id</th>
+      <td>{{b.SubCategoryId}}</td>
+    </tr>
+    <tr>
+      <th>Subcategory Title</th>
+      <td>{{b.SubCategoryTitle}}</td>
+    </tr>
+    <tr>
+        <th>Category Title</th>
+        <td>{{b.CategoryTitle}}</td>
+      </tr>
+  </table>
+  <button class="btn btn-primary"  style="margin:20px;" [routerLink]="['/subcategory']">Go Back</button>|
+  <button type="button" class="btn btn-primary" style="margin:20px;" (click)="delete()">Delete</button>|
+  <button class="btn btn-primary" style="margin:20px;" [routerLink]="['/updatesubcategory',b.SubCategoryId]">Update</button>
+
+</ul>

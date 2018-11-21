@@ -1,0 +1,19 @@
+
+<h1>Update SubCategory</h1>
+<form [formGroup]="updatesubcategoryForm" (ngSubmit)="UpdateSubCategory()">
+    <div *ngFor="let b of subcategoryDetail">
+            <div class="form-group">
+                    <label>SubCategoryTitle</label>
+                    <input type="text" class="form-control" [(ngModel)]="b.SubCategoryTitle" formControlName="SubCategoryTitle" />
+             </div>
+             <div class="form-group">
+                <label>Category Title  </label><br>
+                <select [(ngModel)]="selected" class="form-control" [ngModelOptions]="{standalone: true}"  (ng-change)="fillSub(selected)">
+                        <option *ngFor="let cat of categoryList" [(ngValue)]="cat.CategoryId">{{cat.CategoryTitle}}</option>
+              </select>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="UpdateSubCategory()">Save Changes</button>
+    </div>
+</form>
